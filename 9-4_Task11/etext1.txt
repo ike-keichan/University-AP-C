@@ -1,0 +1,3 @@
+The Faculty of Computer Science and Engineering comprises three
+departments: the Department of Computer Science, the Department of
+Network Media, and the Department of Intelligent Systems.

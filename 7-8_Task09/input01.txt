@@ -1,0 +1,11 @@
+5
+yamada
+90
+fujiwara
+70
+nakamura
+84
+tanaka
+96
+inoue
+78

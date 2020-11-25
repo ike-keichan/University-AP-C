@@ -1,7 +1,7 @@
 /**
  * 氏名：池田 敬祐
  * 学生証番号：g1744069
- * 提出日：10/7 -> 10/10
+ * 提出日：10/7 -> 10/21
  */
 #include "defs.h"
 
@@ -82,7 +82,7 @@ void range(void)
 // 計算結果を表示する関数。
 void calc(void)
 {
-    for(double x = a; x <= b; x += step){
+    for(double x = a; x <= b + step/2; x += step){
         printf("f(%f) = %f\n", x, f(x));
     }
 
