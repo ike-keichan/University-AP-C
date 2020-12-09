@@ -33,7 +33,7 @@ void comm_delete(void);
 void comm_list(void);
 
 // リストの要素を検索する関数
-void comm_seach(void);
+void comm_search(void);
 
 // エラーを出力する関数。
 void error(char *);

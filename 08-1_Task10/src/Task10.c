@@ -47,11 +47,11 @@ void comm_count(void)
 
     while(pt != NULL)
     {
-        count++
+        count++;
         pt = pt -> next;
     }
 
-    printf("size of list: %d\n", pt -> name, pt -> score);
+    printf("size of list: %d\n", count);
     
     return;
 }
@@ -74,30 +74,48 @@ void comm_list(void)
 // リストの要素を削除する関数
 void comm_delete(void)
 {
-    char name[MAXLEN+1];
+    char *name = buff;
     element *pt;
+    element *ppt;
     pt = first;
+    ppt = NULL;
 
     printf("削除する名前: "); 
     scanf("%s", name);
 
     while(pt != NULL)
     {
-        if( strcmp(name, pt -> name))
+        if( strcmp(name, pt -> name) == 0)
         { 
+            if(ppt == NULL)
+            {
+                first = pt -> next;
+            }
+            else
+            {
+                ppt -> next = pt -> next;
+            }
+            
             printf("%10sの要素を削除します。 | %d\n", pt -> name, pt -> score);
             free(pt->name);
             free(pt);
+            return;
         }
-        pt = pt -> next;
+        else
+        {
+            ppt = pt;
+            pt = pt -> next;
+        }
     }
+
+    printf("%10sは見つかりませんでした。\n", name);
     
     return;
 }
 
-void comm_seach(void)
+void comm_search(void)
 {
-    char name[MAXLEN+1];
+    char *name = buff;
     element *pt;
     pt = first;
 
@@ -106,9 +124,18 @@ void comm_seach(void)
 
     while(pt != NULL)
     {
-        if( strcmp(name, pt -> name)){ printf("%10sの得点 | %d\n", pt -> name, pt -> score); }
-        pt = pt -> next;
+        if( strcmp(name, pt -> name) == 0)
+        {
+            printf("%10sの得点 | %d\n", pt -> name, pt -> score);
+            return;
+        }
+        else
+        {
+            pt = pt -> next;
+        }
     }
+
+    printf("%10sは見つかりませんでした。\n", name);
     
     return;
 }
@@ -127,8 +154,8 @@ void task10(void)
         { 
             case 'a':
                 comm_add(); break;
-            // case 'd':
-            //     comm_delete(); break;
+            case 'd':
+                comm_delete(); break;
             case 's':
                 comm_search(); break;
             case 'c':
