@@ -14,7 +14,6 @@ void task13(void)
     scanf("%d", &number);
     
     hanoi(number, 1, 3);
-    printf("0 0\n");
 
     return;
 }
